@@ -1,0 +1,460 @@
+.TodoList-page {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #0f172a;
+  text-align: left;
+}
+
+/* Header */
+.TodoList-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  padding: 44px 20px 110px;
+  text-align: center;
+}
+
+.TodoList-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.TodoList-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #bfdbfe;
+}
+
+/* Main card */
+.TodoList-container {
+  width: 92%;
+  max-width: 760px;
+  margin: -68px auto 40px;
+  padding: 28px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+/* Stats */
+.TodoList-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.TodoList-statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #2563eb;
+  border-radius: 10px;
+}
+
+.TodoList-statBox:nth-child(2) {
+  border-top-color: #d97706;
+}
+
+.TodoList-statBox:nth-child(3) {
+  border-top-color: #059669;
+}
+
+.TodoList-statNumber {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1e3a8a;
+}
+
+.TodoList-statPending {
+  color: #d97706;
+}
+
+.TodoList-statDone {
+  color: #059669;
+}
+
+.TodoList-statLabel {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+/* Progress */
+.TodoList-progressWrap {
+  margin: 22px 0 26px;
+}
+
+.TodoList-progressInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.TodoList-progressTrack {
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.TodoList-progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #059669);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* Input row */
+.TodoList-inputBox {
+  display: flex;
+  gap: 10px;
+}
+
+.TodoList-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.TodoList-input::placeholder {
+  color: #94a3b8;
+}
+
+.TodoList-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.TodoList-addButton,
+.TodoList-cancelButton {
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.TodoList-addButton {
+  color: #ffffff;
+  background-color: #2563eb;
+}
+
+.TodoList-addButton:hover {
+  background-color: #1d4ed8;
+}
+
+.TodoList-cancelButton {
+  color: #334155;
+  background-color: #e2e8f0;
+}
+
+.TodoList-cancelButton:hover {
+  background-color: #cbd5e1;
+}
+
+.TodoList-addButton:active,
+.TodoList-cancelButton:active {
+  transform: scale(0.97);
+}
+
+/* Filter tabs */
+.TodoList-filters {
+  display: flex;
+  gap: 6px;
+  margin: 24px 0 16px;
+  padding: 4px;
+  background-color: #f1f5f9;
+  border-radius: 10px;
+}
+
+.TodoList-filterButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.TodoList-filterButton:hover {
+  color: #0f172a;
+}
+
+.TodoList-filterActive {
+  color: #1e3a8a;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.15);
+}
+
+.TodoList-filterCount {
+  min-width: 24px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  background-color: #e2e8f0;
+  border-radius: 999px;
+}
+
+.TodoList-filterActive .TodoList-filterCount {
+  color: #1e40af;
+  background-color: #dbeafe;
+}
+
+/* Task list */
+.TodoList-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.TodoList-taskItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #d97706;
+  border-radius: 10px;
+  transition: box-shadow 0.2s;
+}
+
+.TodoList-taskItem:hover {
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.TodoList-taskEditing {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  border-left-color: #2563eb;
+}
+
+.TodoList-taskInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.TodoList-taskText {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.TodoList-taskCompleted {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* Badges */
+.TodoList-badge {
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.TodoList-badgePending {
+  color: #92400e;
+  background-color: #fef3c7;
+}
+
+.TodoList-badgeDone {
+  color: #065f46;
+  background-color: #d1fae5;
+}
+
+/* Task action buttons */
+.TodoList-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.TodoList-completeButton,
+.TodoList-editButton,
+.TodoList-deleteButton {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.TodoList-completeButton:active,
+.TodoList-editButton:active,
+.TodoList-deleteButton:active {
+  transform: scale(0.96);
+}
+
+.TodoList-completeButton {
+  color: #ffffff;
+  background-color: #059669;
+}
+
+.TodoList-completeButton:hover {
+  background-color: #047857;
+}
+
+.TodoList-undoButton {
+  color: #334155;
+  background-color: #e2e8f0;
+}
+
+.TodoList-undoButton:hover {
+  background-color: #cbd5e1;
+}
+
+.TodoList-editButton {
+  color: #1d4ed8;
+  background-color: #dbeafe;
+}
+
+.TodoList-editButton:hover {
+  background-color: #bfdbfe;
+}
+
+.TodoList-deleteButton {
+  color: #b91c1c;
+  background-color: #fee2e2;
+}
+
+.TodoList-deleteButton:hover {
+  background-color: #fecaca;
+}
+
+/* Empty state */
+.TodoList-emptyBox {
+  padding: 40px 16px;
+  text-align: center;
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+}
+
+.TodoList-emptyTitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.TodoList-emptyText {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Footer */
+.TodoList-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.TodoList-footerText {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.TodoList-clearButton {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #b91c1c;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.TodoList-clearButton:hover {
+  background-color: #fee2e2;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .TodoList-header {
+    padding: 34px 16px 96px;
+  }
+
+  .TodoList-title {
+    font-size: 26px;
+  }
+
+  .TodoList-container {
+    width: 94%;
+    padding: 18px 14px;
+  }
+
+  .TodoList-stats {
+    gap: 8px;
+  }
+
+  .TodoList-statNumber {
+    font-size: 22px;
+  }
+
+  .TodoList-inputBox {
+    flex-direction: column;
+  }
+
+  .TodoList-taskItem {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .TodoList-actions {
+    justify-content: flex-end;
+  }
+
+  .TodoList-filterButton {
+    font-size: 13px;
+    padding: 9px 4px;
+  }
+
+  .TodoList-filterCount {
+    display: none;
+  }
+}
